@@ -20,8 +20,9 @@ class CalendarController extends Controller
             return view('zadanie1.error')->with('error', 'Nieprawidłowy rok');
         }
 
-        $currentDate = Carbon::create($year ?: Carbon::now()->year, $month ?: Carbon::now()->month, 1);
+        $currentDate = Carbon::create($year ?: 0, $month ?: Carbon::now()->month, 1);
         $currentDate->startOfMonth();
+        $selectedMonthName = $currentDate->format('F');
 
         $calendarDays = [];
 
@@ -42,8 +43,6 @@ class CalendarController extends Controller
         }
 
         $weeks = array_chunk($calendarDays, 7);
-
-        $selectedMonthName = $currentDate->format('F');
 
         return view('zadanie1.calendar', compact('weeks', 'selectedMonthName'));
     }
