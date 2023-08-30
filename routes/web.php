@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\ExcelController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +20,4 @@ Route::get('/', function () {
 });
 
 Route::get('zadanie1', [CalendarController::class, 'index']);
+Route::get('zadanie2', [ExcelController::class, 'index']);
