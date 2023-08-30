@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
-class CallendarController extends Controller
+class CalendarController extends Controller
 {
     public function index(Request $request)
     {

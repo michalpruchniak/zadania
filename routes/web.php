@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\CallendarController;
+use App\Http\Controllers\CalendarController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,4 +18,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('zadanie1', [CallendarController::class, 'index']);
+Route::get('zadanie1', [CalendarController::class, 'index']);
