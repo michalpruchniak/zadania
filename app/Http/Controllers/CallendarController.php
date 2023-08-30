@@ -42,6 +42,9 @@ class CallendarController extends Controller
         }
 
         $weeks = array_chunk($calendarDays, 7);
-        return view('zadanie1.calendar', compact('weeks'));
+
+        $selectedMonthName = $currentDate->format('F');
+
+        return view('zadanie1.calendar', compact('weeks', 'selectedMonthName'));
     }
 }
