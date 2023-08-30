@@ -1,7 +1,6 @@
 @extends('zadanie1.layout')
 @section('content')
-<h1>Kalendarz</h1>
-{{__($selectedMonthName)}}
+<h1><span class="red">{{__($selectedMonthName)}}</span> / {{$year}}</h1>
 <table>
     <thead>
         <tr>

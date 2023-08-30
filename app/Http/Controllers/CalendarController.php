@@ -10,7 +10,7 @@ class CalendarController extends Controller
     public function index(Request $request)
     {
         $month = $request->input('month', null);
-        $year = $request->input('year', null);
+        $year = $request->input('year', Carbon::now()->year);
 
         if ($month !== null && ($month < 1 || $month > 12)) {
             return view('zadanie1.error')->with('error', 'Nieprawidłowy numer miesiąca');
@@ -44,6 +44,6 @@ class CalendarController extends Controller
 
         $weeks = array_chunk($calendarDays, 7);
 
-        return view('zadanie1.calendar', compact('weeks', 'selectedMonthName'));
+        return view('zadanie1.calendar', compact('weeks', 'selectedMonthName', 'year'));
     }
 }

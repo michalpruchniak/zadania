@@ -10,6 +10,9 @@
             font-size: 20px;
             font-weight: bold;
         }
+        .container {
+            width: 80%;
+        }
         th {
             text-align: center;
             background-color: #4e4e4e;
