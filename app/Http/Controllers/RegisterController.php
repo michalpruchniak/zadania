@@ -16,11 +16,17 @@ class RegisterController extends Controller
 
     public function store(RegisterRequest $request)
     {
-
         $this->profile = new Profile();
         $this->storeProfile($request->type, $request);
 
         $this->profile->save();
+
+        return redirect('zadanie3/success');
+    }
+
+    public function success()
+    {
+        return view('zadanie3.success');
     }
 
     private function storeProfile($type, $request)
