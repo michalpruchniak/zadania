@@ -23,3 +23,4 @@ Route::get('/', function () {
 Route::get('zadanie1', [CalendarController::class, 'index']);
 Route::get('zadanie2', [ExcelController::class, 'index']);
 Route::get('zadanie3', [RegisterController::class, 'index']);
+Route::post('zadanie3/store', [RegisterController::class, 'store']);

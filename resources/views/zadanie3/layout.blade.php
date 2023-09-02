@@ -16,12 +16,14 @@
     <script>
         const changeDisplayForm = (type) => {
             if(type == 'indyvidual') {
-                $('.indyvidual-form').show();
-                $('.company-form').hide();
+                $('.indyvidualField').show();
+                $('.companyField').hide();
+                $('.nameLabel').text('Imię');
             } else {
+                $('.indyvidualField').hide();
+                $('.companyField').show();
+                $('.nameLabel').text('Nazwa firmy');
 
-                $('.indyvidual-form').hide();
-                $('.company-form').show();
             }
           }
 
