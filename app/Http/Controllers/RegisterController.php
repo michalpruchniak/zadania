@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
+    private $profile;
     public function index()
     {
         return view('zadanie3.register');
@@ -16,17 +17,32 @@ class RegisterController extends Controller
     public function store(RegisterRequest $request)
     {
 
-        $profile = new Profile();
-        if ($request->type == 'indyvidual') {
-            $profile->name = $request->name;
-            $profile->email = $request->email;
-            $profile->DOB = \DateTime::createFromFormat('m/d/Y', $request->DOB)->format('Y-m-d');
-        } else {
-            $profile->name = $request->name;
-            $profile->email = $request->email;
-            $profile->nip = $request->nip;
-        }
+        $this->profile = new Profile();
+        $this->storeProfile($request->type, $request);
 
-        $profile->save();
+        $this->profile->save();
+    }
+
+    private function storeProfile($type, $request)
+    {
+        if ($type === 'indyvidual') {
+            $this->storeIndyvidual($request);
+        } else {
+            $this->storeCompany($request);
+        }
+    }
+
+    private function storeIndyvidual($request)
+    {
+        $this->profile->name = $request->name;
+        $this->profile->email = $request->email;
+        $this->profile->DOB = \DateTime::createFromFormat('m/d/Y', $request->DOB)->format('Y-m-d');
+    }
+
+    private function storeCompany($request)
+    {
+        $this->profile->name = $request->name;
+        $this->profile->email = $request->email;
+        $this->profile->nip = $request->nip;
     }
 }
